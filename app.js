@@ -29,7 +29,7 @@ app.get('/socios/v1/usuarios', (req, res) => {
         //Existen usuarios
         res.status(200).json({
             estado: 1,
-            mensaje: "Existen categorias",
+            mensaje: "Existen Usuarios",
             //var : contenido
             users: usuarios
         })
@@ -37,7 +37,7 @@ app.get('/socios/v1/usuarios', (req, res) => {
         //No existen usuarios
         res.status(404).json({
             estado: 0,
-            mensaje: "No se encontraron categorias",
+            mensaje: "No se encontraron Usuarios",
             users: usuarios
 
         })
@@ -158,7 +158,7 @@ app.delete('/socios/v1/usuarios/:id', (req, res) => {
     // Obtener el ID de la categoría de los parámetros de la URL
     const { id } = req.params;
 
-    // Buscar la posición de la categoría en el array 'categorias' por su ID
+    // Buscar la posición de la categoría en el array 'usuarios' por su ID
     const posEliminar = usuarios.findIndex(usuario => usuario.id == id);
 
     if (posEliminar != -1) {
