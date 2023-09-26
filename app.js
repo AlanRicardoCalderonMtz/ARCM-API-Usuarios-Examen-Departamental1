@@ -61,14 +61,14 @@ app.get('/socios/v1/usuarios/:id', (req, res) => {
         res.status(200).json({
             estado: 1,
             mensaje: "Usuario encontrado",
-            category: usuarioEncontrado
+            users: usuarioEncontrado
         });
     } else {
         // Si no se encontró el usuario, devolver un mensaje de error en JSON
         res.status(404).json({
             estado: 0,
             mensaje: "Usuario no encontrado",
-            category: null
+            users: null
         });
     }
 });
@@ -155,14 +155,14 @@ app.delete('/socios/v1/usuarios/:id', (req, res) => {
     //Eliminar un recurso - Eliminar un usuario
     //res.send('Eliminar un usuario por su id');
 
-    // Obtener el ID de la categoría de los parámetros de la URL
+    // Obtener el ID de la usuarios de los parámetros de la URL
     const { id } = req.params;
 
-    // Buscar la posición de la categoría en el array 'usuarios' por su ID
+    // Buscar la posición de la usuarios en el array 'usuarios' por su ID
     const posEliminar = usuarios.findIndex(usuario => usuario.id == id);
 
     if (posEliminar != -1) {
-        // Si se encontró la categoría con el ID buscado, eliminarla del array
+        // Si se encontró el usuario con el ID buscado, eliminarla del array
         usuarios.splice(posEliminar, 1);
 
         res.status(201).json({
